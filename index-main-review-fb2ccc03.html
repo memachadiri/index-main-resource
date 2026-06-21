@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云 · 一眼认出</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #1f1f2b;
+            background: #f6f5f0;
+        }
+
+        /* 深色头图 故事开场 */
+        .hero {
+            background: #0f0e17;
+            color: #f0ede4;
+            padding: 7rem 1.8rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -10%;
+            width: 120%;
+            height: 140%;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.04), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            background: linear-gradient(135deg, #f9d976, #f39f6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .opening {
+            font-size: 1.15rem;
+            max-width: 680px;
+            margin: 1.2rem auto 0;
+            color: #cac6bb;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .hero .opening a {
+            color: #f9d976;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.2s;
+        }
+
+        .hero .opening a:hover {
+            color: #ffe68f;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 800px;
+            margin: -2rem auto 0;
+            background: #ffffff;
+            border-radius: 32px 32px 0 0;
+            padding: 3.2rem 2.4rem 4rem;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.04);
+            position: relative;
+            z-index: 2;
+        }
+
+        .content h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin: 2.4rem 0 1rem;
+            color: #18181f;
+            border-left: 4px solid #e09f5e;
+            padding-left: 1rem;
+        }
+
+        .content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content p {
+            margin-bottom: 1.6rem;
+            color: #2c2c38;
+        }
+
+        .content a {
+            color: #b5673a;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #dbaa7a;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        .content a:hover {
+            color: #8a4b26;
+            text-decoration-color: #8a4b26;
+        }
+
+        /* 特点列表 卡片式 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1.5rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+
+        .feature-item {
+            background: #f8f6f0;
+            border-radius: 20px;
+            padding: 1.6rem 1.2rem;
+            border: 1px solid #ece8dd;
+            transition: box-shadow 0.25s, transform 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .feature-item strong {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d2419;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #3e3e4a;
+            margin-bottom: 0;
+        }
+
+        /* 温和结尾 / 小片段 */
+        .ending-note {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e6e0d4;
+            font-size: 0.98rem;
+            color: #52525b;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .ending-note .tag {
+            background: #eeeae1;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #4d4033;
+        }
+
+        .faq-mini {
+            background: #f8f5ee;
+            padding: 1.4rem 1.8rem;
+            border-radius: 24px;
+            margin: 2.6rem 0 0.8rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #281f17;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            font-size: 1.05rem;
+        }
+
+        .faq-mini p {
+            margin: 0.8rem 0 0;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e3ddd1;
+            margin: 2.2rem 0 1rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 5rem 1.2rem 3.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .opening {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 2rem 1.2rem 3rem;
+                margin-top: -1.5rem;
+                border-radius: 24px 24px 0 0;
+            }
+
+            .content h2 {
+                font-size: 1.35rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .ending-note {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 · 故事开场 -->
+    <section class="hero">
+        <h1>你与 <span>开云</span> · 一面之缘</h1>
+        <div class="opening">
+            打开浏览器，输入一串地址，然后看见这个页面。<br>
+            你大概只花了几秒钟，就想确认：“<a href="https://index-main-kai-yun.com">开云</a> 是干什么的？” —— 这个念头，就是今天故事的起点。
+        </div>
+    </section>
+
+    <!-- 浅色正文区 -->
+    <main class="content">
+
+        <!-- 承接段落 -->
+        <h2>一眼锁定用途</h2>
+        <p>
+            很多时候，我们访问一个站点，不是因为它名气大，而是因为需要某个明确的东西：一份指南、一个工具、或一个可以信赖的路径。<a href="https://index-main-kai-yun.com">开云</a> 正是为了满足这种“我要马上知道这里提供什么”而存在。它不堆砌概念，也不绕弯子，而是用最直接的方式告诉你：这里可以做什么、什么值得关注。
+        </p>
+        <p>
+            从第一屏到细节模块，每一块内容都围绕“快速识别”来组织。不用翻遍菜单，也不用读大段说明，视线所及之处，重点自然浮现。
+        </p>
+
+        <!-- 特点列表 -->
+        <h2>几个让你觉得“就是它”的特点</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>📌 一眼式入口</strong>
+                <p>核心功能直接可见，无需多层跳转。适合想要快速上手、不想浪费时间探索的人。</p>
+            </div>
+            <div class="feature-item">
+                <strong>🧭 语意清晰的导航</strong>
+                <p>每个模块的名称就是它做的事情。没有生造的概念，也没有模棱两可的图标。</p>
+            </div>
+            <div class="feature-item">
+                <strong>🔄 场景先行</strong>
+                <p>根据不同使用场景（查找、比较、决策）组织信息，让你永远知道自己在哪里。</p>
+            </div>
+            <div class="feature-item">
+                <strong>📄 克制的内容密度</strong>
+                <p>不给页面塞满文字。必要的说明配上留白，阅读节奏由你控制。</p>
+            </div>
+        </div>
+
+        <!-- 场景短述 -->
+        <h2>一个常见的瞬间</h2>
+        <p>
+            假设你刚听说 <a href="https://index-main-kai-yun.com">开云</a>，想看看它是否适合自己。你打开页面，目光先落在头图 —— 一句短文案点明了定位；往下滑动，特点依次排列，没有弹窗干扰，也没有突然出现的视频自动播放。你花了不到十秒就做出了判断：这里是否值得继续。这种体验，本身就传达着一种尊重。
+        </p>
+
+        <!-- FAQ 摘要（折叠） -->
+        <details class="faq-mini">
+            <summary>🤔 常见疑问 · 一句话回答</summary>
+            <p><strong>Q：这个网站复杂吗？</strong><br>A：不复杂。设计初衷就是让新访客在半分钟内理解核心用途。</p>
+            <p style="margin-top: 0.6rem;"><strong>Q：我需要注册才能看到内容吗？</strong><br>A：大部分内容无需注册。部分深入功能可能需要简单验证，但不会设在必经之路上。</p>
+        </details>
+
+        <!-- 温和结尾 -->
+        <hr>
+        <div class="ending-note">
+            <span>就像它的首页一样，<a href="https://index-main-kai-yun.com">开云</a> 始终在寻找最直接的表达方式。</span>
+            <span class="tag">故事 · 从一次识别开始</span>
+        </div>
+
+        <!-- 小小的留白呼应 -->
+        <p style="font-size: 0.85rem; color: #7b756b; margin-top: 2rem; text-align: right; border-top: 0; padding-top: 0;">
+            — 页面设计以识别效率为线索，不预设立场。
+        </p>
+    </main>
+</body>
+</html>
