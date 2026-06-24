@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 站点介绍与说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #fde9d9 0%, #fce1c5 50%, #f8d6af 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3b2c1f;
+        }
+
+        .container {
+            max-width: 860px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fffcf7;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(150, 90, 50, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+            padding: 3rem 2.8rem;
+            transition: box-shadow 0.25s ease;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 0.8rem; }
+            .card { padding: 2rem 1.4rem; border-radius: 24px; }
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #4d3020;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+            border-left: 5px solid #e5a87b;
+            padding-left: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.9rem; padding-left: 0.9rem; }
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #7a6249;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 5px solid #e5a87b;
+            font-weight: 400;
+        }
+
+        .intro-box {
+            background: #f9f2e9;
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.8rem 0 2.2rem 0;
+            font-size: 1.05rem;
+            color: #4a3726;
+            border: 1px solid #eedbcb;
+        }
+
+        .intro-box strong {
+            color: #8b5e3c;
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+        }
+
+        .pull-quote {
+            margin: 2rem 0 2rem 2rem;
+            padding: 1.2rem 1.8rem;
+            background: #fff8f1;
+            border-left: 6px solid #dc9f73;
+            border-radius: 0 16px 16px 0;
+            font-style: italic;
+            color: #5a4431;
+            font-size: 1.05rem;
+            box-shadow: 0 2px 6px rgba(180, 120, 70, 0.06);
+        }
+
+        .pull-quote::before {
+            content: "▌ ";
+            font-size: 1.8rem;
+            color: #c78759;
+            line-height: 0;
+            vertical-align: middle;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2.2rem 0 1.8rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #fbf4ec;
+            border-radius: 20px;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #e8d7c8;
+            transition: background 0.2s;
+        }
+
+        .feature-item:hover {
+            background: #f6ebe0;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #694e38;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: #5d4835;
+        }
+
+        .faq-summary {
+            margin: 2.5rem 0 2rem 0;
+            border-top: 2px dashed #e1cfbe;
+            padding-top: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #523b28;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-item .a {
+            color: #5f4b38;
+            padding-left: 1.2rem;
+            border-left: 3px solid #dbb294;
+        }
+
+        .visit-sentence {
+            background: #f0e4d8;
+            border-radius: 40px;
+            padding: 1.2rem 2rem;
+            text-align: center;
+            font-size: 1.15rem;
+            margin: 2.2rem 0 0.8rem;
+            color: #3c2a1b;
+        }
+
+        .visit-sentence a {
+            color: #9b5f35;
+            font-weight: 600;
+            text-decoration: none;
+            background: transparent;
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+            transition: background 0.2s, color 0.2s;
+            display: inline-block;
+        }
+
+        .visit-sentence a:hover {
+            background: #dbb294;
+            color: #2f1f12;
+        }
+
+        .footer-meta {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+            color: #8b755e;
+            border-top: 1px solid #ebddcf;
+            padding-top: 1.8rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e5cfbb;
+            color: #4a3423;
+            font-size: 0.8rem;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddcab8, transparent);
+            margin: 1.8rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>爱游戏 · 说明</h1>
+        <div class="subhead">站点介绍与可信说明 · 从使用者的视角整理</div>
+
+        <div class="intro-box">
+            <strong>爱游戏</strong> 是一个面向游戏爱好者与轻度玩家的信息聚合站。这里不追逐爆款标题，也不强调排名或评分，而是围绕游戏本身的可玩性、风格与社区反馈，提供更沉静的浏览体验。
+        </div>
+
+        <p>
+            很多人第一次听说 <a href="https://igameofficial.com" style="color:#9b5f35; font-weight:500; text-decoration:underline; text-underline-offset:3px; text-decoration-color:#dbb294;">爱游戏</a> 时，会先被这个直白的名字吸引。它没有使用花哨的英文缩写或难记的域名，而是直接指向了站点的核心：关于游戏、关于喜爱。打开页面后你会发现，这里的结构更像一本可以翻阅的笔记，而不是传统的门户。
+        </p>
+
+        <p>
+            站点内容以原创介绍与精选推荐为主，涵盖独立游戏、经典重制、冷门佳作以及一些值得关注的创作团队。每篇文章都标注了参考来源或体验时间，尽量让读者知道信息来自哪里、时效性如何。这种透明度在如今的信息环境里并不多见，也是「爱游戏」让人感到踏实的原因之一。
+        </p>
+
+        <div class="pull-quote">
+            我们更愿意把时间花在玩过、验证过的内容上，而不是复制粘贴新闻稿。<br>
+            —— 来自站点简介
+        </div>
+
+        <p>
+            除了文章，你还可以看到一些围绕特定主题整理的游戏清单，例如「适合短时放松的步行模拟器」「像素风但故事厚重的 RPG」「手柄体验极佳的移植作品」等。每份清单都带有简短的推荐理由与适配平台说明，方便你快速判断是否感兴趣。
+        </p>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>文章为主</h3>
+                <p>每篇都经过试玩或资料比对，不写云评测。</p>
+            </div>
+            <div class="feature-item">
+                <h3>清单实用</h3>
+                <p>按场景、风格、平台分类，减少选择焦虑。</p>
+            </div>
+            <div class="feature-item">
+                <h3>更新稳定</h3>
+                <p>每周都有新内容，但不会为了数量降低质量。</p>
+            </div>
+        </div>
+
+        <p>
+            关于可信度方面，<strong>爱游戏</strong> 在每篇文章末尾会注明「本文基于 x.x 版本体验」或「参考自开发者访谈/公开资料」，部分推荐会直接给出 Steam、itch.io 或主机商店的链接。站点不嵌入广告联盟，也没有隐藏的推广软文，所有合作都会在页面顶部以明显标识告知。
+        </p>
+
+        <div class="faq-summary">
+            <div class="faq-item">
+                <span class="q">❓ 为什么叫「爱游戏」而不是其他名字？</span>
+                <div class="a">因为简单直接。做这个站的人觉得，喜欢游戏不需要复杂的包装，名字是什么就是什么。</div>
+            </div>
+            <div class="faq-item">
+                <span class="q">❓ 网站内容主要面向哪些人？</span>
+                <div class="a">面向那些想认真选一款游戏、但又不愿被营销话术包围的玩家。也适合对某类游戏好奇、想先了解再入门的读者。</div>
+            </div>
+            <div class="faq-item">
+                <span class="q">❓ 信息更新频率如何？</span>
+                <div class="a">每周 2–4 篇新内容，包含一篇较长的专题和若干短评或清单。遇到游戏节或新作集中发售期会适当增加。</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="visit-sentence">
+            如果你想找一处安静、可靠的游戏阅读角落，可以直接前往 <a href="https://igameofficial.com">爱游戏</a> 开始浏览。
+        </div>
+
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #6f5944;">
+            另外，站内所有文章均支持 RSS 订阅，方便你用自己的阅读器跟进更新。如果你对某篇文章有不同看法或想补充信息，页脚也提供了联系邮箱 —— 编辑会认真阅读每封来信。
+        </p>
+
+        <div class="footer-meta">
+            <span class="badge">介绍页 · 爱游戏</span>
+            <span style="margin: 0 0.8rem;">·</span>
+            内容最后整理于本月
+            <span style="margin: 0 0.8rem;">·</span>
+            站点运营中
+        </div>
+    </div>
+</div>
+</body>
+</html>
