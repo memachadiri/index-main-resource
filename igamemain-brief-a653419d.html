@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #fafafa;
+      color: #1e1e2a;
+      line-height: 1.7;
+      letter-spacing: 0.015em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 3.8rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 520;
+      letter-spacing: -0.02em;
+      color: #1f2937;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #5b6778;
+      max-width: 540px;
+      margin: 0.8rem auto 0;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 1rem;
+    }
+
+    .hero .sub a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px dotted #94a3b8;
+      transition: border-color 0.2s;
+    }
+
+    .hero .sub a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* section */
+    section {
+      margin-bottom: 3.2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 480;
+      letter-spacing: -0.01em;
+      color: #111827;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 460;
+      color: #1e293b;
+      margin: 1.6rem 0 0.6rem;
+    }
+
+    p {
+      margin-bottom: 1.1rem;
+    }
+
+    /* 特点卡片（优势区） */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem 1.5rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .feature-item {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-item .icon {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+      line-height: 1;
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.3rem;
+      border: none;
+      padding: 0;
+      color: #0f172a;
+    }
+
+    .feature-item p {
+      font-size: 0.93rem;
+      color: #475569;
+      margin: 0;
+    }
+
+    /* 说明区 / 卡片 */
+    .note-box {
+      background: #f1f5f9;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 12px 12px 0;
+      padding: 1.2rem 1.6rem;
+      margin: 1.6rem 0;
+    }
+
+    .note-box p {
+      margin: 0.3rem 0;
+    }
+
+    /* FAQ 摘要 */
+    .faq-item {
+      margin-bottom: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #0c4a6e;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #334155;
+      font-size: 0.95rem;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      margin-top: 3.5rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 2rem;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .footer-links a {
+      color: #1e293b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .footer-links a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    .footer-links .highlight-link {
+      color: #2563eb;
+      font-weight: 470;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 1.8rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      letter-spacing: 0.02em;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .page {
+        padding: 2rem 1.2rem 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .feature-item {
+        padding: 1rem 1rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- hero -->
+    <div class="hero">
+      <h1>爱游戏 · 信息站点</h1>
+      <div class="sub">
+        一份围绕 <a href="https://igamemain.com">爱游戏</a> 的简明介绍，从平台定位到日常参考，提供有依据的说明。
+      </div>
+    </div>
+
+    <!-- 介绍 + 特点（优势区） -->
+    <section>
+      <h2>站点说明</h2>
+      <p>
+        igamemain.com 是一个围绕游戏内容与社区讨论而建立的信息节点。不同于商业门户或资源站，这里的定位更接近一份可查阅的参考索引：整理来自公开渠道的游戏资料、版本动态以及玩家讨论中沉淀的实用经验。网站内容由维护者根据可验证的信息源进行编录，并定期更新。
+      </p>
+      <p>
+        对于初次接触的访客，<a href="https://igamemain.com">爱游戏</a> 提供了一条结构化的信息路径——从游戏背景到玩法简析，再到常见问题的整理，力求让读者在较短时间内获得相对完整的认知轮廓。站点本身不提供下载、充值或账号服务，也不参与任何形式的游戏运营。
+      </p>
+    </section>
+
+    <!-- 优势区 (特点卡片) -->
+    <section>
+      <h2>内容组织特点</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <span class="icon">📋</span>
+          <h3>条目化整理</h3>
+          <p>每个游戏或主题以独立页面呈现，信息按背景、机制、版本等维度拆分，便于跳转与对照。</p>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🔄</span>
+          <h3>定期勘误</h3>
+          <p>维护者根据官方公告、可靠社区反馈修订内容，避免陈旧或错误信息长期留存在页面上。</p>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🔗</span>
+          <h3>出处标注</h3>
+          <p>重要数据、引用或截图均标注来源（官方页面、更新日志、媒体文章等），方便读者回溯核实。</p>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🧩</span>
+          <h3>克制更新</h3>
+          <p>不追逐热点或制造信息噪音，每次上线内容都经过内容必要性评估，保持站点精简。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区 (可信角度) -->
+    <section>
+      <h2>可信说明</h2>
+      <div class="note-box">
+        <p><strong>关于信息准确性</strong><br>
+        本站内容均来自公开可查的渠道，包括游戏开发商官方文档、权威媒体报道以及经过交叉验证的玩家社区讨论。每一篇页面顶部均标注最后核查日期。如读者发现偏差，欢迎通过站内联系方式指正，维护者会在核实后更新。</p>
+      </div>
+      <p>站点本身不嵌入第三方广告或跟踪脚本，也不收集用户个人数据。浏览全程无需注册或登录。这种设计是为了让阅读体验尽量轻量，同时减少不必要的数据交互。对于希望深入了解具体游戏机制的读者，<a href="https://igamemain.com">爱游戏</a> 的每个页面底部都附有相关外部参考链接，可直接跳转到官方或半官方资料页。</p>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+      <h2>常见疑问摘要</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q：爱游戏是游戏下载站吗？</div>
+        <div class="faq-a">不是。本站不提供任何游戏客户端、补丁、存档或资源的直接下载，所有内容均为信息介绍与索引。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：信息更新频率如何？</div>
+        <div class="faq-a">根据游戏版本更迭或社区重要动态不定期更新。无固定排期，但每次更新会标注修改日期。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：能否转载本站内容？</div>
+        <div class="faq-a">可以引用原文并标明出处（igamemain.com），但不建议大篇幅复制。引用时请保持上下文完整，避免断章取义。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：网站有论坛或评论区吗？</div>
+        <div class="faq-a">目前没有。站点以单向信息展示为主，暂时未开设讨论区。如有建议可通过页面底部邮件联系。</div>
+      </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+      <a href="https://igamemain.com" class="highlight-link">爱游戏</a>
+      <a href="#">关于本站</a>
+      <a href="#">内容索引</a>
+      <a href="#">联系方式</a>
+    </div>
+    <div class="copyright">
+      igamemain.com · 信息参考页面
+    </div>
+  </div>
+</body>
+</html>
